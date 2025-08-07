@@ -1,12 +1,10 @@
-// file: frontend/src/app/potensi-desa/umkm/page.js
-
-'use client'; // <-- TAMBAHKAN INI DI BARIS PALING ATAS
+'use client'; // <-- TAMBAHKAN BARIS INI DI PALING ATAS
 
 import { umkmData } from '@/data/umkm';
 import UmkmList from '@/components/umkm/UmkmList';
 import MapLoader from '@/components/peta/MapLoader';
 
-// export const metadata = { ... }; // Hapus atau komentari metadata
+// export const metadata = { ... }; // Hapus atau komentari metadata, karena ini sekarang Client Component
 
 export default function UmkmPage() {
   const mapCenter = [-8.0878, 111.1370]; 
