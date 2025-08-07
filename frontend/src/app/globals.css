@@ -1,4 +1,4 @@
-/* Tailwind CSS will be injected during build; remove @tailwind directives from here. */
+@import "tailwindcss";
 
 :root {
   --background: #ffffff;
