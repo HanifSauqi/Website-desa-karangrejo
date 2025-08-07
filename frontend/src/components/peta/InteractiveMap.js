@@ -15,17 +15,15 @@ const InteractiveMap = ({ locations, center, zoom }) => {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-
       {locations.map((loc) => (
         <Marker key={loc.id} position={loc.position}>
           <Popup>
             <h3 className="font-bold">{loc.name}</h3>
-            <p>{loc.category || loc.description}</p>
+            <p>{loc.category}</p>
           </Popup>
         </Marker>
       ))}
     </MapContainer>
   );
 };
-
 export default InteractiveMap;

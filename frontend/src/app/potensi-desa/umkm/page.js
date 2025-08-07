@@ -1,9 +1,12 @@
 // file: frontend/src/app/potensi-desa/umkm/page.js
-'use client';
+
+'use client'; // <-- TAMBAHKAN INI DI BARIS PALING ATAS
 
 import { umkmData } from '@/data/umkm';
 import UmkmList from '@/components/umkm/UmkmList';
 import MapLoader from '@/components/peta/MapLoader';
+
+// export const metadata = { ... }; // Hapus atau komentari metadata
 
 export default function UmkmPage() {
   const mapCenter = [-8.0878, 111.1370]; 
