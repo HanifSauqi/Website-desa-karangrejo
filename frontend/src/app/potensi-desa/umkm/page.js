@@ -5,11 +5,6 @@ import { umkmData } from '@/data/umkm';
 import UmkmList from '@/components/umkm/UmkmList';
 import MapLoader from '@/components/peta/MapLoader';
 
-export const metadata = {
-  title: 'UMKM - Desa Karangrejo',
-  description: 'Dukung dan temukan produk unggulan dari UMKM di Desa Karangrejo.',
-};
-
 export default function UmkmPage() {
   const mapCenter = [-8.0878, 111.1370]; 
   const mapZoom = 15;
