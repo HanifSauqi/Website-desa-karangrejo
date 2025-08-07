@@ -1,4 +1,5 @@
 // file: frontend/src/app/potensi-desa/umkm/page.js
+'use client';
 
 import { umkmData } from '@/data/umkm';
 import UmkmList from '@/components/umkm/UmkmList';
