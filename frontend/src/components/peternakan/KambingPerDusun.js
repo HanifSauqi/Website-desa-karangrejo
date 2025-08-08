@@ -3,12 +3,13 @@
 
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
-import { dataKambingPerDusun } from "@/data/kambing";
+// HAPUS -> import { dataKambingPerDusun } from "@/data/kambing";
 import { useInView } from "react-intersection-observer";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-const KambingPerDusun = () => {
+// Komponen sekarang menerima 'data' sebagai prop
+const KambingPerDusun = ({ data }) => {
     const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
     const options = {
@@ -16,9 +17,7 @@ const KambingPerDusun = () => {
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
-            legend: {
-                position: 'top', // Tampilkan legenda di atas
-            },
+            legend: { position: 'top' },
             title: {
                 display: true,
                 text: 'Populasi Kambing Jantan & Betina per Dusun',
@@ -35,20 +34,20 @@ const KambingPerDusun = () => {
     };
 
     const chartData = {
-        labels: dataKambingPerDusun.map(item => item.dusun),
-        // Kita sekarang punya DUA dataset: satu untuk jantan, satu untuk betina
+        // Gunakan data dari props
+        labels: data?.map(item => item.dusun),
         datasets: [
             {
                 label: 'Jantan',
-                data: dataKambingPerDusun.map(item => item.jantan),
-                backgroundColor: 'rgba(59, 130, 246, 0.7)', // Biru
+                data: data?.map(item => item.kambing.jantan),
+                backgroundColor: 'rgba(59, 130, 246, 0.7)',
                 borderColor: 'rgba(59, 130, 246, 1)',
                 borderWidth: 1,
             },
             {
                 label: 'Betina',
-                data: dataKambingPerDusun.map(item => item.betina),
-                backgroundColor: 'rgba(236, 72, 153, 0.7)', // Pink
+                data: data?.map(item => item.kambing.betina),
+                backgroundColor: 'rgba(236, 72, 153, 0.7)',
                 borderColor: 'rgba(236, 72, 153, 1)',
                 borderWidth: 1,
             },
@@ -57,7 +56,7 @@ const KambingPerDusun = () => {
 
     return (
         <div ref={ref} className={`bg-white p-6 md:p-8 rounded-xl shadow-lg border mt-12 transition-all duration-700 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="relative h-[28rem] w-full"> {/* Tingginya ditambah untuk menampung lebih banyak data */}
+            <div className="relative h-[28rem] w-full">
                 {inView && <Bar options={options} data={chartData} />}
             </div>
         </div>
