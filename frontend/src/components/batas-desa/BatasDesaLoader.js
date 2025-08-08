@@ -3,6 +3,7 @@
 'use client'; // <-- WAJIB! Ini menandakan file ini adalah Client Component
 
 import dynamic from 'next/dynamic';
+import 'leaflet/dist/leaflet.css'; // <-- 1. TAMBAHKAN ATAU PASTIKAN BARIS INI ADA
 
 // Pindahkan logika dynamic import ke sini
 const BatasDesaMap = dynamic(() => import('@/components/batas-desa/BatasDesaMap'), {

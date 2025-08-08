@@ -1,11 +1,13 @@
 // file: frontend/src/components/home/Hero.js
 
-import SocialLinks from './SocialLinks';
+import SocialLinks from "./SocialLinks";
 
 const Hero = () => {
   return (
-    <section className="relative h-screen flex items-center justify-center bg-cover bg-center text-white" style={{ backgroundImage: "url('/fotbar-kkn.webp')" }}>
-      
+    <section
+      className="relative h-screen flex items-center justify-center bg-cover bg-center text-white"
+      style={{ backgroundImage: "url('/fotbar-kkn.webp')" }}
+    >
       {/* Overlay gradien gelap agar teks lebih terbaca */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
 

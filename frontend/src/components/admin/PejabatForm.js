@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 // Daftar jabatan kita definisikan di sini agar bisa diakses form
 const JABATAN_OPTIONS = [
-  'Kepala Desa', 'Sekretaris Desa', 'Kepala Dusun',
+  'Kepala Desa', 'Sekretaris Desa', 'Perangkat Kewilayahan',
   'Kaur Keuangan', 'Kaur Tata Usaha & Umum', 'Kaur Perencanaan',
   'Kasi Pemerintahan', 'Kasi Pelayanan', 'Kasi Kesejahteraan',
   'Kepala Dusun Krajan', 'Kepala Dusun Brungkah', 'Kepala Dusun Pringapus',
@@ -16,7 +16,7 @@ const JABATAN_OPTIONS = [
 const PejabatForm = ({ onSave, initialData = {}, isSaving }) => {
   const [formData, setFormData] = useState({
     name: initialData.name || '',
-    jabatan: initialData.jabatan || JABATAN_OPTIONS[0], // Default ke pilihan pertama
+    jabatan: initialData.jabatan || JABATAN_OPTIONS[0],
   });
   const [imageFile, setImageFile] = useState(null);
   const [imagePreview, setImagePreview] = useState(initialData.imageUrl || '');
@@ -55,7 +55,6 @@ const PejabatForm = ({ onSave, initialData = {}, isSaving }) => {
         <input type="text" name="name" value={formData.name} onChange={handleChange} className="w-full p-2 border rounded" required />
       </div>
       
-      {/* Input Jabatan sekarang menjadi Dropdown */}
       <div>
         <label className="block font-medium mb-1">Jabatan</label>
         <select name="jabatan" value={formData.jabatan} onChange={handleChange} className="w-full p-2 border rounded bg-white">
@@ -64,8 +63,6 @@ const PejabatForm = ({ onSave, initialData = {}, isSaving }) => {
           ))}
         </select>
       </div>
-
-      {/* Kolom Atasan dan Nomor Urut DIHAPUS */}
 
       <div>
         <label className="block font-medium mb-1">Foto Pejabat</label>

@@ -16,11 +16,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <About />
-      <BeritaPreview />
-      <PotensiPreview />
-      <ProfilPreview />
-      <GaleriPreview />
+
     </>
   );
 }
