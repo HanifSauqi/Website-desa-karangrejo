@@ -5,7 +5,9 @@ const Pejabat = require('../models/Pejabat');
 const authMiddleware = require('../middleware/authMiddleware');
 const multer = require('multer');
 const { put, del } = require('@vercel/blob');
+const JABATAN_LIST = require('../config/jabatanConfig'); // Asumsi ada file config untuk jabatan
 const path = require('path');
+
 
 const upload = multer();
 
