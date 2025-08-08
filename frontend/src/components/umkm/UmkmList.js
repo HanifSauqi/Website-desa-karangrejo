@@ -1,4 +1,3 @@
-// file: frontend/src/components/umkm/UmkmList.js
 'use client';
 
 import Image from "next/image";
@@ -6,7 +5,13 @@ import Link from "next/link";
 import { useInView } from "react-intersection-observer";
 
 const UmkmCard = ({ location, delay }) => {
-    const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
+    const { ref, inView } = useInView({ 
+        triggerOnce: true, 
+        threshold: 0.1,
+        // Tambahkan fallbackInView untuk server-side rendering
+        fallbackInView: true
+    });
+    
     return (
         <div 
             ref={ref} 
@@ -18,9 +23,9 @@ const UmkmCard = ({ location, delay }) => {
                     <Image 
                         src={location.imageUrl} 
                         alt={location.name} 
-                        layout="fill" 
-                        objectFit="cover"
-                        className="cursor-pointer transition-transform duration-300 group-hover:scale-110"
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="cursor-pointer transition-transform duration-300 group-hover:scale-110 object-cover"
                     />
                 </Link>
             </div>

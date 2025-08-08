@@ -1,10 +1,19 @@
-// file: frontend/src/components/umkm/UMKMClientPage.js
-'use client'; // <-- Kunci utama, hanya file ini yang ditandai 'use client'
+'use client';
 
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import MapLoader from '@/components/peta/MapLoader';
+import dynamic from 'next/dynamic';
 import UmkmList from '@/components/umkm/UmkmList';
+
+// Gunakan dynamic import untuk MapLoader dengan ssr: false (ini bisa dilakukan di client component)
+const MapLoader = dynamic(() => import('@/components/peta/MapLoader'), {
+  ssr: false,
+  loading: () => (
+    <div className="flex justify-center items-center h-[500px] bg-gray-100 rounded-lg">
+      <p>Memuat peta...</p>
+    </div>
+  )
+});
 
 export default function UMKMClientPage() {
   const [umkmData, setUmkmData] = useState([]);
@@ -28,13 +37,13 @@ export default function UMKMClientPage() {
   const mapZoom = 15;
 
   if (loading) {
-    return <p className="text-center py-16">Memuat data dan peta UMKM...</p>;
+    return <div className="text-center py-16">Memuat data dan peta UMKM...</div>;
   }
 
   return (
     <>
       <div className="container mx-auto px-6 h-[500px] rounded-lg overflow-hidden shadow-lg">
-          <MapLoader locations={umkmData} center={mapCenter} zoom={mapZoom} />
+        <MapLoader locations={umkmData} center={mapCenter} zoom={mapZoom} />
       </div>
       <UmkmList locations={umkmData} />
     </>

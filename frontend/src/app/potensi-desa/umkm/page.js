@@ -1,5 +1,3 @@
-// file: frontend/src/app/potensi-desa/umkm/page.js
-
 import UMKMClientPage from "@/components/umkm/UMKMClientPage";
 
 // Metadata bisa kita gunakan lagi sekarang!
