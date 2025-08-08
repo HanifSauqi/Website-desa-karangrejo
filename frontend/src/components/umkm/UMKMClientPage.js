@@ -1,5 +1,5 @@
 // file: frontend/src/components/umkm/UMKMClientPage.js
-'use client';
+'use client'; // <-- Kunci utama, hanya file ini yang ditandai 'use client'
 
 import { useState, useEffect } from 'react';
 import axios from 'axios';
