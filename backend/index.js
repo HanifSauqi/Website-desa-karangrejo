@@ -24,6 +24,7 @@ mongoose.connect(process.env.MONGO_URI)
 const authRoutes = require('./routes/auth');
 const beritaRoutes = require('./routes/berita');
 const kontenRoutes = require('./routes/konten'); 
+const pejabatroutes = require('./routes/pejabat');
 
 // Menggunakan rute tersebut dengan prefix /api
 // Semua rute di auth.js akan diawali dengan /api/auth
@@ -32,6 +33,8 @@ app.use('/api/auth', authRoutes);
 app.use('/api/konten', kontenRoutes);
 
 app.use('/api/berita', beritaRoutes);
+// Semua rute di pejabat.js akan diawali dengan /api/pejabat
+app.use('/api/pejabat', pejabatroutes);
 
 
 // Route dasar untuk tes apakah server berjalan

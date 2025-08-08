@@ -27,7 +27,7 @@ export default function LoginPage() {
       localStorage.setItem('token', response.data.token);
       
       // Arahkan ke dashboard
-      router.push('/admin/dashboard'); 
+      router.push('/admin'); 
     } catch (err) {
       setError(err.response?.data?.message || 'Login gagal. Silakan coba lagi.');
     } finally {

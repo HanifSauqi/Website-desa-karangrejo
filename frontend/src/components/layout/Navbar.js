@@ -74,7 +74,7 @@ const Navbar = () => {
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
-      <div className="container mx-auto px-4 lg:px-6 py-2 flex justify-between items-center">
+      <div className="container mx-auto px-8 lg:px-6 py-2 flex justify-between items-center">
         {/* Logo */}
         <Link href="/" onClick={closeAllMenus} className="flex items-center space-x-2 md:space-x-3 rtl:space-x-reverse">
           <Image
