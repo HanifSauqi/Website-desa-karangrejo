@@ -1,14 +1,14 @@
-'use client'; // <-- TAMBAHKAN BARIS INI DI PALING ATAS
+// file: frontend/src/app/potensi-desa/umkm/page.js
 
-import { umkmData } from '@/data/umkm';
-import UmkmList from '@/components/umkm/UmkmList';
-import MapLoader from '@/components/peta/MapLoader';
+import UMKMClientPage from "@/components/umkm/UMKMClientPage";
 
+// Metadata bisa kita gunakan lagi sekarang!
+export const metadata = {
+  title: 'UMKM - Desa Karangrejo',
+  description: 'Dukung dan temukan produk unggulan dari UMKM di Desa Karangrejo.',
+};
 
 export default function UmkmPage() {
-  const mapCenter = [-8.0878, 111.1370]; 
-  const mapZoom = 15;
-
   return (
     <main className="pt-24 md:pt-32">
         <div className="container mx-auto px-6 text-center">
@@ -17,10 +17,9 @@ export default function UmkmPage() {
             Temukan lokasi para pelaku UMKM di Desa Karangrejo.
             </p>
         </div>
-        <div className="container mx-auto px-6 h-[500px] rounded-lg overflow-hidden shadow-lg">
-            <MapLoader locations={umkmData} center={mapCenter} zoom={mapZoom} />
-        </div>
-        <UmkmList locations={umkmData} />
+        
+        {/* Panggil komponen pembungkus yang akan menangani semua logika browser */}
+        <UMKMClientPage />
     </main>
   );
 }
