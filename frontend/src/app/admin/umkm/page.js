@@ -4,7 +4,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Link from 'next/link';
-import Image from 'next/image';
 
 export default function AdminUmkmPage() {
   const [umkm, setUmkm] = useState([]);

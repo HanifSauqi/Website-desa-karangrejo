@@ -66,6 +66,16 @@ export default function AdminLayout({ children }) {
         </svg>
       )
     },
+    {
+      href: '/admin/umkm',
+      label: 'UMKM',
+      icon: (
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 0l3-3m-3 3l-3-3m6 7h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v10a2 2 0 002 2h2m8-4h4m-4 0h-4" />
+        </svg>
+      )
+    }
+    ,
     { 
       href: '/admin/berita', 
       label: 'Berita', 

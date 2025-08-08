@@ -1,4 +1,3 @@
-// file: frontend/src/components/umkm/UMKMClientPage.js
 'use client';
 
 import { useState, useEffect } from 'react';
