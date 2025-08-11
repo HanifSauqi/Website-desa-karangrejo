@@ -38,7 +38,7 @@ const KambingStats = ({ data }) => {
             <GiGoat className="text-3xl" />
         </div>
         <div>
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800">Populasi Kambing Etawa</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-800">Populasi Kambing</h2>
             <p className="text-gray-500">Total Populasi: {data.total.toLocaleString('id-ID')} Ekor</p>
         </div>
       </div>
