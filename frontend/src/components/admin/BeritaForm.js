@@ -3,19 +3,14 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import dynamic from 'next/dynamic';
-import 'react-quill/dist/quill.snow.css'; // Impor CSS untuk editor
-
-// Impor ReactQuill secara dinamis agar tidak error di server
-const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
 const BeritaForm = ({ onSave, initialData = {}, isSaving }) => {
   const [formData, setFormData] = useState({
     title: initialData.title || '',
     author: initialData.author || 'Admin Desa',
     excerpt: initialData.excerpt || '',
+    content: initialData.content || '', // <-- 'content' sekarang ada di formData
   });
-  const [content, setContent] = useState(initialData.content || '');
   const [imageFile, setImageFile] = useState(null);
   const [imagePreview, setImagePreview] = useState(initialData.imageUrl || '');
 
@@ -35,8 +30,8 @@ const BeritaForm = ({ onSave, initialData = {}, isSaving }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const dataToSubmit = new FormData();
+    // Kirim semua data dari formData, termasuk 'content'
     Object.keys(formData).forEach(key => dataToSubmit.append(key, formData[key]));
-    dataToSubmit.append('content', content);
     
     if (imageFile) {
       dataToSubmit.append('image', imageFile);
@@ -58,11 +53,17 @@ const BeritaForm = ({ onSave, initialData = {}, isSaving }) => {
         <textarea name="excerpt" value={formData.excerpt} onChange={handleChange} rows="3" className="w-full p-2 border rounded"></textarea>
       </div>
       
+      {/* --- BAGIAN REACT QUILL DIHAPUS DAN DIGANTI DENGAN TEXTAREA BIASA --- */}
       <div>
         <label className="block font-medium mb-1">Isi Berita Lengkap</label>
-        <div className="bg-white">
-          <ReactQuill theme="snow" value={content} onChange={setContent} style={{ height: '250px', marginBottom: '40px' }} />
-        </div>
+        <textarea 
+          name="content" 
+          value={formData.content} 
+          onChange={handleChange} 
+          rows="10" 
+          className="w-full p-2 border rounded"
+          placeholder="Tulis isi berita di sini..."
+        ></textarea>
       </div>
 
       <div>
@@ -70,7 +71,7 @@ const BeritaForm = ({ onSave, initialData = {}, isSaving }) => {
         <input type="file" accept="image/*" onChange={handleImageChange} className="w-full p-2 border rounded text-sm" />
         {imagePreview && (
           <div className="mt-4 relative w-full h-64 border rounded-lg overflow-hidden">
-            <Image src={imagePreview} alt="Preview" layout="fill" objectFit="cover" />
+            <Image src={imagePreview} alt="Preview" fill className="object-cover" />
           </div>
         )}
       </div>
