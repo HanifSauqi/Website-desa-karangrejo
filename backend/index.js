@@ -27,6 +27,7 @@ const kontenRoutes = require('./routes/konten');
 const pejabatroutes = require('./routes/pejabat');
 const umkmRoutes = require('./routes/umkm');
 const peternakanRoutes = require('./routes/peternakan');
+const galeriRoutes = require('./routes/galeri');
 
 // Menggunakan rute tersebut dengan prefix /api
 // Semua rute di auth.js akan diawali dengan /api/auth
@@ -41,6 +42,7 @@ app.use('/api/pejabat', pejabatroutes);
 app.use('/api/umkm', umkmRoutes);
 // Semua rute di peternakan.js akan diawali dengan /api/peternakan
 app.use('/api/peternakan', peternakanRoutes);
+app.use('/api/galeri', galeriRoutes);
 
 // Route dasar untuk tes apakah server berjalan
 app.get('/', (req, res) => {
