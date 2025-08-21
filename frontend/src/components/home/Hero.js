@@ -6,7 +6,7 @@ const Hero = () => {
   return (
     <section
       className="relative h-screen flex items-center justify-center bg-cover bg-center text-white"
-      style={{ backgroundImage: "url('/fotbar-kkn.webp')" }}
+      style={{ backgroundImage: "url('/fotbar-perangkat.JPG')" }}
     >
       {/* Overlay gradien gelap agar teks lebih terbaca */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
