@@ -85,8 +85,9 @@ const Navbar = () => {
             className="w-12 h-12 md:w-20 md:h-20"
           />
           <div>
-            <span className="block text-lg md:text-2xl font-medium text-gray-300 leading-tight">Desa</span>
-            <span className="block text-xl md:text-3xl font-bold text-white leading-tight">Karangrejo</span>
+            <span className="block text-lg md:text-lg font-medium text-gray-100 leading-tight">PEMERINTAH</span>
+            <span className="block text-xl md:text-xl font-bold text-gray-100 leading-tight">DESA KARANGREJO</span>
+            <span className="block text-md md:text-md font-medium text-white leading-tight">KEC. ARJOSARI, KAB. PACITAN</span>
           </div>
         </Link>
 

@@ -22,9 +22,9 @@ const Footer = () => {
               </div>
             </Link>
             <div className="space-y-2 text-sm">
-              <p className="flex items-start"><FaMapMarkerAlt className="w-4 h-4 mr-2 mt-1 shrink-0" /><span>Jl. Raya Arjosari No. 12, Karangrejo, Arjosari, Pacitan, Jawa Timur</span></p>
-              <p className="flex items-center"><FaPhone className="w-4 h-4 mr-2" /><span>(0357) 123-456</span></p>
-              <p className="flex items-center"><FaEnvelope className="w-4 h-4 mr-2" /><span>pemdes@karangrejo.id</span></p>
+              <p className="flex items-start"><FaMapMarkerAlt className="w-4 h-4 mr-2 mt-1 shrink-0" /><span>Jl. Wisata air hangat kec.arjosari kab.pacitan kode pos 63581</span></p>
+              <p className="flex items-center"><FaPhone className="w-4 h-4 mr-2" /><span>(+62) 8385049286</span></p>
+              <p className="flex items-center"><FaEnvelope className="w-4 h-4 mr-2" /><span>Karangrejopemdes@gmail.com</span></p>
             </div>
           </div>
 

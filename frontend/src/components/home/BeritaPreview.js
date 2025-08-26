@@ -2,13 +2,12 @@
 'use client';
 
 import Link from "next/link";
-import { dataBerita } from "@/data/berita";
-import BeritaCard from "../berita/BeritaCard";
+import BeritaCard from "../berita/BeritaCard"; // Pastikan path ini benar
 import { useInView } from "react-intersection-observer";
 
-const BeritaPreview = () => {
+const BeritaPreview = ({ data }) => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
-  const previewBerita = dataBerita.slice(0, 3); // Ambil 3 berita pertama
+  const previewBerita = data || [];
 
   return (
     <section ref={ref} className="py-20 bg-slate-50">
@@ -18,9 +17,11 @@ const BeritaPreview = () => {
           <p className="text-gray-600 mt-2 max-w-2xl mx-auto">Ikuti informasi dan kegiatan terbaru yang berlangsung di Desa Karangrejo.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {previewBerita.map(post => (
-            <BeritaCard key={post.id} post={post} />
-          ))}
+          {previewBerita.length > 0 ? (
+            previewBerita.map(post => <BeritaCard key={post._id} post={post} />)
+          ) : (
+            <p className="col-span-3 text-center text-gray-500">Belum ada berita untuk ditampilkan.</p>
+          )}
         </div>
         <div className="text-center mt-12">
           <Link href="/berita" className="bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg hover:bg-blue-700 transition-transform duration-300 hover:scale-105 shadow-md">

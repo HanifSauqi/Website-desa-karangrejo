@@ -40,21 +40,21 @@ const PotensiPreview = () => {
             <PotensiCard 
                 title="UMKM Unggulan"
                 description="Produk lokal berkualitas dari warga."
-                imageUrl="/images/berita/umkm-pelatihan.jpg"
+                imageUrl="/umkm.jpeg"
                 linkUrl="/potensi-desa/umkm"
                 delay={100}
             />
             <PotensiCard 
-                title="Pariwisata Alam"
-                description="Nikmati keindahan alam yang asri."
-                imageUrl="/images/pariwisata/coban-rondo.jpg"
+                title="Pariwisata Air Hangat"
+                description="Nikmati pemandian air hangat yang alami."
+                imageUrl="/pemandian-air-hangat.JPG"
                 linkUrl="/potensi-desa/pariwisata/pemandian-banyu-anget"
                 delay={200}
             />
             <PotensiCard 
                 title="Peternakan"
                 description="Salah satu pilar ekonomi desa."
-                imageUrl="/images/galeri/kegiatan-1.jpg" // Ganti dengan foto ternak
+                imageUrl="/Kambing.jpg" // Ganti dengan foto ternak
                 linkUrl="/potensi-desa/peternakan"
                 delay={300}
             />

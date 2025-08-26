@@ -3,13 +3,11 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { dataGaleri } from "@/data/galeri";
 import { useInView } from "react-intersection-observer";
 
-const GaleriPreview = () => {
+const GaleriPreview = ({ data }) => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
-  // Ambil 5 foto pertama untuk layout yang menarik
-  const previewGaleri = dataGaleri.slice(0, 5);
+  const previewGaleri = data || [];
 
   return (
     <section ref={ref} className="py-20 bg-white">
@@ -19,28 +17,29 @@ const GaleriPreview = () => {
           <p className="text-gray-600 mt-2 max-w-2xl mx-auto">Momen-momen berharga dari berbagai kegiatan di desa kami.</p>
         </div>
 
-        {/* Grid Asimetris yang Modern */}
         <div className="grid grid-cols-2 md:grid-cols-4 grid-rows-2 gap-4 h-[300px] md:h-[500px]">
-          {previewGaleri.map((foto, index) => {
-            let gridClass = '';
-            // Gambar pertama (index 0) dibuat paling besar
-            if (index === 0) {
-              gridClass = 'col-span-2 row-span-2';
-            }
-            
-            return (
-              <div key={foto.id} className={`relative rounded-lg overflow-hidden group shadow-lg ${gridClass}`}>
-                <Image
-                  src={foto.src}
-                  alt={foto.alt}
-                  layout="fill"
-                  objectFit="cover"
-                  className="transform transition-transform duration-500 group-hover:scale-110"
-                />
-                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300"></div>
-              </div>
-            );
-          })}
+          {previewGaleri.length > 0 ? (
+            previewGaleri.map((foto, index) => {
+              let gridClass = '';
+              if (index === 0) gridClass = 'col-span-2 row-span-2';
+              return (
+                <div key={foto._id} className={`relative rounded-lg overflow-hidden group shadow-lg ${gridClass}`}>
+                  <Image
+                    src={foto.imageUrl}
+                    alt={foto.alt}
+                    fill
+                    className="object-cover transform transition-transform duration-500 group-hover:scale-110"
+                    sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 20vw"
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300"></div>
+                </div>
+              );
+            })
+          ) : (
+            <div className="col-span-full row-span-full flex items-center justify-center bg-gray-100 rounded-lg">
+                <p className="text-gray-500">Belum ada foto di galeri.</p>
+            </div>
+          )}
         </div>
 
         <div className="text-center mt-12">

@@ -4,7 +4,7 @@
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 
-const About = () => {
+const About = ({ data }) => {
     const { ref, inView } = useInView({
         triggerOnce: true,
         threshold: 0.2,
@@ -16,11 +16,10 @@ const About = () => {
                 {/* Kolom Kiri: Gambar */}
                 <div className={`relative w-full h-96 rounded-lg shadow-2xl transition-all duration-700 ease-out ${inView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
                     <Image
-                        src="/images/pejabat/kantor-desa.jpg" // Ganti dengan gambar yang relevan
+                        src={data?.imageUrl}
                         alt="Tentang Desa Karangrejo"
-                        layout="fill"
-                        objectFit="cover"
-                        className="rounded-lg"
+                        fill
+                        className="object-cover rounded-lg"
                     />
                 </div>
                 {/* Kolom Kanan: Teks */}
@@ -30,7 +29,7 @@ const About = () => {
                     </h2>
                     <div className="w-24 h-1.5 bg-blue-600 mb-6"></div>
                     <p className="text-gray-600 leading-relaxed text-justify">
-                        Desa Karangrejo adalah sebuah desa yang terletak di lembah hijau yang subur, dikelilingi oleh perbukitan yang indah. Dengan sejarah yang kaya dan masyarakat yang ramah, kami berkomitmen untuk melestarikan tradisi sambil merangkul inovasi untuk kemajuan bersama. Visi kami adalah menjadi desa percontohan yang mandiri secara ekonomi dan kuat secara sosial.
+                        {data?.sejarah || "Deskripsi singkat tentang desa belum diisi. Silakan perbarui melalui CMS."}
                     </p>
                 </div>
             </div>

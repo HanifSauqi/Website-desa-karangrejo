@@ -34,7 +34,7 @@ const ProfilPreview = () => {
                         description="Visi, misi, dan sejarah singkat terbentuknya Desa Karangrejo."
                         linkUrl="/profil-desa/tentang-desa"
                         delay={100}
-                    />
+                    />  
                     <ProfilCard 
                         icon={<FaSitemap />}
                         title="Struktur Desa"
